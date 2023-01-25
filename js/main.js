@@ -79,16 +79,23 @@
     modalContent.innerHTML = `${index + 1}`;
   }
 
-  const listItems = Array.from({length: LIST_ITEM_COUNT}).map(() => {
+  const listItems = Array.from({length: LIST_ITEM_COUNT}).map((_, index) => {
     const listItem = document.createElement('li');
+    listItem.style.listStyle = 'none';
+    listItem.style.marginBlockStart = '0.5rem';
+    listItem.style.padding = '1rem';
+    listItem.style.border = '1px solid black';
+    listItem.style.background = 'white';
     listItem.style.willChange = 'transform';
     listItem.style.transition = 'transform 0.2s ease-out';
     listItem.style.cursor = 'pointer';
+    listItem.innerHTML = `${index + 1}`;
 
     return listItem;
   });
 
   const listParent = document.getElementById('dynamic-list');
+  listParent.style.paddingInlineStart = '0';
 
   listItems.forEach((listItem, index, array) => {
     const sibilings = getSibilings(index);
