@@ -68,7 +68,8 @@
       easing: 'ease-out',
     })
 
-    modalContent.innerHTML = `${index}`;
+    // NOTE: ol-li의 숫자와 맞추기 위해서 1을 더해줌
+    modalContent.innerHTML = `${index + 1}`;
   }
 
   const listItems = Array.from({length: LIST_ITEM_COUNT}).map(() => {
