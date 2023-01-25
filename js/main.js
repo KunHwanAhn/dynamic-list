@@ -40,33 +40,40 @@
   modal.style.left = '0';
   modal.style.zIndex = MODAL_Z_INDEX;
   modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-  modal.style.width = '100%';
-  modal.style.height = '100%';
-  modal.addEventListener('click', () => {
+  modal.style.width = '100vw';
+  modal.style.height = '100vh';
+  modal.addEventListener('click', () => { hideModal(); });
+
+  function hideModal() {
+    document.body.style.overflowY = 'auto';
     modal.style.display = 'none';
     modal.style.justifyContent = '';
     modal.style.alignItems = '';
 
     modalContent.innerHTML = '';
-  });
+  }
 
   /**
    * @param {number} index
    */
   function showModal(index) {
+    document.body.style.overflowY = 'hidden';
     modal.style.display = 'flex';
     modal.style.justifyContent = 'center';
     modal.style.alignItems = 'center';
 
-    modalContent.animate([
-      { transform: 'scale(0.99)' },
-      { transform: 'scale(1.01)' },
-      { transform: 'scale(1)' }
-    ], {
-      duration: 200,
-      iterations: 1,
-      easing: 'ease-out',
-    })
+    modalContent.animate(
+      [
+        { transform: 'scale(0.8)', opacity: 0 },
+        { transform: 'scale(1.01)', opacity: 1, offset: 0.8 },
+        { transform: 'scale(1)' },
+      ],
+      {
+        duration: 200,
+        iterations: 1,
+        easing: 'ease-out',
+      }
+    );
 
     // NOTE: 리스트 아이템의 숫자와 맞추기 위해서 1을 더해줌
     modalContent.innerHTML = `${index + 1}`;
