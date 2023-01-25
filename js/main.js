@@ -30,6 +30,7 @@
   modalContent.style.width = '70vw';
   modalContent.style.height = '70vh';
   modalContent.style.fontSize = '10vw';
+  modalContent.style.willChange = 'transform';
   modalContent.addEventListener('click', (event) => { event.stopPropagation(); });
 
   const modal = document.getElementById('modal');
