@@ -27,8 +27,9 @@
   modalContent.style.backgroundColor = 'rgb(255, 255, 255)';
   modalContent.style.border = '1px solid black';
   modalContent.style.borderRadius = '4px';
-  modalContent.style.width = '80vw';
-  modalContent.style.height = '80vh';
+  modalContent.style.width = '70vw';
+  modalContent.style.height = '70vh';
+  modalContent.style.fontSize = '10vw';
   modalContent.addEventListener('click', (event) => { event.stopPropagation(); });
 
   const modal = document.getElementById('modal');
@@ -55,6 +56,16 @@
     modal.style.display = 'flex';
     modal.style.justifyContent = 'center';
     modal.style.alignItems = 'center';
+
+    modalContent.animate([
+      { transform: 'scale(0.99)' },
+      { transform: 'scale(1.01)' },
+      { transform: 'scale(1)' }
+    ], {
+      duration: 200,
+      iterations: 1,
+      easing: 'ease-out',
+    })
 
     modalContent.innerHTML = `${index}`;
   }
