@@ -3,6 +3,7 @@
 
   /**
    * @param {number} index
+   * @param {number} maxIndex
    */
   function getSibilings(index, maxIndex = LIST_ITEM_COUNT - 1) {
     if (index === 0) {
@@ -16,8 +17,6 @@
     return [index - 1, index + 1];
   }
 
-  const listParent = document.getElementById('dynamic-list');
-
   const listItems = Array.from({length: LIST_ITEM_COUNT}).map(() => {
     const listItem = document.createElement('li');
     listItem.style.willChange = 'transform';
@@ -25,6 +24,8 @@
 
     return listItem;
   });
+
+  const listParent = document.getElementById('dynamic-list');
 
   listItems.forEach((listItem, index, array) => {
     const sibilings = getSibilings(index);
