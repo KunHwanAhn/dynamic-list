@@ -74,7 +74,7 @@
   const listItems = Array.from({length: LIST_ITEM_COUNT}).map(() => {
     const listItem = document.createElement('li');
     listItem.style.willChange = 'transform';
-    listItem.style.transition = 'all 0.2s ease-out';
+    listItem.style.transition = 'transform 0.2s ease-out';
     listItem.style.cursor = 'pointer';
 
     return listItem;
